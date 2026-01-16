@@ -4,8 +4,8 @@
 --   > github: https://github.com/redhat-developer/yaml-language-server
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+-- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
+-- @return nil
 return function()
 	vim.lsp.config('yamlls', {
 --		capabilities = capabilities,

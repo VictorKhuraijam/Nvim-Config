@@ -51,6 +51,8 @@ return {
 					node_decremental = "<S-TAB>",
 				},
 			},
+      --print("Treesitter config ran")
 		})
+    require'nvim-treesitter'.install({'templ'})
 	end,
 }

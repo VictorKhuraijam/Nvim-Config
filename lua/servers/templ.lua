@@ -1,5 +1,5 @@
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+-- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
+-- @return nil
 --return function(capabilities)
 
   return function()
@@ -10,7 +10,6 @@
 		root_markers = { 'go.mod', '.git' },
 		settings = {},
 	})
-	
 	-- Enable the server immediately after configuring it
 	vim.lsp.enable('templ')
 end

@@ -4,10 +4,9 @@
 --   > github: https://github.com/tailwindlabs/tailwindcss-intellisense
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
---return function(capabilities)
-	
+-- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
+-- @return nil
+--return function(capabilities) 	
 return function()
   vim.lsp.config('tailwindcss', {
 --		capabilities = capabilities,

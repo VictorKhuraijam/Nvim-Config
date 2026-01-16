@@ -4,8 +4,8 @@
 --   > github: https://github.com/golang/tools/tree/master/gopls
 -- ================================================================================================
 
---- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
---- @return nil
+-- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
+-- @return nil
 --return function(capabilities)
 
   return function()

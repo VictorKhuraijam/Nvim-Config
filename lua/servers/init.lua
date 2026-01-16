@@ -10,10 +10,10 @@ require("servers.gopls")()
 --require("servers.jsonls")(capabilities)
 
 --print("Loading templ")
-require("servers.templ")(capabilities)
+require("servers.templ")()
 
 --print("Loading ts_ls")
-require("servers.ts_ls")(capabilities)
+require("servers.ts_ls")()
 --require("servers.bashls")(capabilities)
 --require("servers.clangd")(capabilities)
 --require("servers.dockerls")(capabilities)
@@ -21,11 +21,11 @@ require("servers.ts_ls")(capabilities)
 --require("servers.yamlls")(capabilities)
 
 --print("Loading tailwindcss")
-require("servers.tailwindcss")(capabilities)
+require("servers.tailwindcss")()
 --require("servers.solidity_ls_nomicfoundation")(capabilities)
 
 -- Linters & Formatters
---require("servers.efm-langserver")(capabilities)
+require("servers.efm-langserver")()
 
 --vim.lsp.enable('lua_ls')
 --vim.lsp.enable('pyright')

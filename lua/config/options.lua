@@ -95,10 +95,13 @@ vim.opt.wildignorecase = true -- Case-insensitive tab completion in commands
 --}
 
 -- Folding Settings
-vim.opt.foldmethod = "expr" -- Use expression for folding
+--vim.opt.foldmethod = "expr" -- Use expression for folding
+vim.opt.foldmethod = "indent" -- Use expression for folding
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
 vim.opt.foldlevel = 99 -- Keep all folds open by default
 
 -- Split Behavior
 vim.opt.splitbelow = true -- Horizontal splits open below
 vim.opt.splitright = true -- Vertical splits open to the right
+
+
