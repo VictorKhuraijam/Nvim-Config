@@ -17,6 +17,14 @@ return {
 			end,
 			desc = "FZF Files",
 		},
+
+    {
+        "<leader>fl", -- "fl" for "find lines"
+        function()
+            require("fzf-lua").grep_curbuf()
+        end,
+        desc = "FZF Lines in Current Buffer",
+    },
 		{
 			"<leader>fg",
 			function()
