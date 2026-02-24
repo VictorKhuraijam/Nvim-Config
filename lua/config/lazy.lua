@@ -9,6 +9,9 @@
 --   > lazy.nvim website : https://lazy.folke.io/installation
 -- ================================================================================================
 
+
+vim.env.PATH = vim.fn.expand("$HOME/.cargo/bin:") .. vim.env.PATH
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field (fs_stat)
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

@@ -14,9 +14,11 @@ vim.filetype.add({
 vim.treesitter.language.register("templ", "templ")
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'templ '},
-  callback = function() 
+  pattern = {'templ'},
+  callback = function()
     vim.treesitter.start()
+    --Optional: force the filetype again just to be sure
+    vim.bo.filetype = 'templ'
     print('templ treesitter highlight on filetype lua')
   end,
 
