@@ -6,11 +6,11 @@
 
 -- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
 -- @return nil
---return function(capabilities) 	
+--return function(capabilities)
 return function()
   vim.lsp.config('tailwindcss', {
 --		capabilities = capabilities,
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/tailwindcss-language-server", "--stdio" },	
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/tailwindcss-language-server", "--stdio" },
 		filetypes = {
       "html",
       "css",
@@ -23,6 +23,12 @@ return function()
 			"templ",
 		},
     root_markers = { "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.mjs", "tailwind.config.ts", "postcss.config.js", "postcss.config.cjs", ".git" },
+
+    on_attach = function(client)
+      -- disable broken color provider
+      client.server_capabilities.colorProvider = false
+    end,
+
 	})
 vim.lsp.enable('tailwindcss')
 
