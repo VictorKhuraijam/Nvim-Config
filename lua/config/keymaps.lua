@@ -62,5 +62,11 @@ vim.keymap.set("n", "<M-z>", function()
   end
 end, { desc = "Toggle line wrap" })
 
-
+-- Flutter
+vim.keymap.set("n", "<leader>Fr", "<cmd>FlutterRun<cr>",           { desc = "Flutter Run" })
+vim.keymap.set("n", "<leader>Fq", "<cmd>FlutterQuit<cr>",          { desc = "Flutter Quit" })
+vim.keymap.set("n", "<leader>FR", "<cmd>FlutterReload<cr>",        { desc = "Flutter Hot Reload" })
+vim.keymap.set("n", "<leader>Fd", "<cmd>FlutterDevices<cr>",       { desc = "Flutter Devices" })
+vim.keymap.set("n", "<leader>Fo", "<cmd>FlutterOutlineToggle<cr>", { desc = "Flutter Outline" })
+vim.keymap.set("n", "<leader>Fe", "<cmd>FlutterEmulators<cr>",     { desc = "Flutter Emulators" })
 

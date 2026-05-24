@@ -27,6 +27,10 @@ require("servers.tailwindcss")()
 -- Linters & Formatters
 require("servers.efm-langserver")()
 
+require("servers.dartls")()
+
+
+
 --vim.lsp.enable('lua_ls')
 --vim.lsp.enable('pyright')
 --vim.lsp.enable('gopls')
