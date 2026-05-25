@@ -13,10 +13,35 @@ return {
 
     vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
 
+    require("nvim-web-devicons").setup({
+      override = {
+        yaml = {
+          icon = "",
+          color = "#6d8086",
+          name = "Yaml",
+        },
+        yml = {
+          icon = "",
+          color = "#6d8086",
+          name = "Yml",
+        },
+      },
+    })
+
 		require("nvim-tree").setup({
+     renderer = {
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = true,
+          },
+        },
+      },
   		git = {
         ignore = false,
-      },	
+      },
       filters = {
 				dotfiles = false, -- Show hidden files (dotfiles)
 			},
@@ -35,10 +60,10 @@ return {
           local function opts(desc)
             return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
           end
-          
+
           -- Default mappings
           api.config.mappings.default_on_attach(bufnr)
-          
+
           -- Override 'a' to use floating input
           vim.keymap.set("n", "a", api.fs.create, opts("Create"))
         end,

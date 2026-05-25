@@ -33,11 +33,11 @@ return {
         -- Reuse your existing on_attach from utils/lsp.lua
         on_attach = require("utils.lsp").on_attach,
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
-        color = {
-          enabled = true,
-          virtual_text = true,
-          virtual_text_str = "■",
-        },
+        --color = {
+        --  enabled = true,
+        --  virtual_text = true,
+        --  virtual_text_str = "■",
+        --},
         settings = {
           dart = {
             completeFunctionCalls = true,

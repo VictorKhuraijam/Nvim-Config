@@ -7,6 +7,8 @@ local on_attach = require("utils.lsp").on_attach
 vim.filetype.add({
   extension = {
     templ = "templ",
+    yaml = 'yaml',
+    yml = 'yaml',
   },
 })
 
@@ -69,3 +71,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = lsp_on_attach_group,
 	callback = on_attach,
 })
+
+-- Flutter document colors
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(event)
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+		if not client then
+			return
+		end
+
+		local ft = vim.bo[event.buf].filetype
+
+		if ft == "dart"
+			and client.name == "dartls"
+			and client.server_capabilities.colorProvider
+		then
+			vim.lsp.document_color.enable(true, event.buf)
+		end
+	end,
+})
+
+
+

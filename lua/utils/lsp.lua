@@ -1,6 +1,12 @@
 local M = {}
 
 M.on_attach = function(event)
+
+ -- guard: bail if event.data is missing
+    if not event.data or not event.data.client_id then
+        return
+    end
+
 	local client = vim.lsp.get_client_by_id(event.data.client_id)
 	if not client then
 		return

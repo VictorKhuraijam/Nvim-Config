@@ -11,7 +11,7 @@
   return function( )
 	vim.lsp.config('ts_ls', {
 --		capabilities = capabilities,
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server", "--stdio" },	
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server", "--stdio" },
 		filetypes = {
 			"typescript",
 			"javascript",
