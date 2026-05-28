@@ -10,8 +10,9 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				-- theme = "melange",
-				theme = "dracula",
+          theme = "seoul256",
+				 --theme = "melange",
+				--theme = "dracula",
 				icons_enabled = true,
 				section_separators = { left = "", right = "" },
 				component_separators = "|",

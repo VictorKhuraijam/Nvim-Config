@@ -105,9 +105,9 @@ vim.opt.splitbelow = true -- Horizontal splits open below
 vim.opt.splitright = true -- Vertical splits open to the right
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
-  underline = true,
+  underline = false,
   update_in_insert = false,
   severity_sort = true,
 

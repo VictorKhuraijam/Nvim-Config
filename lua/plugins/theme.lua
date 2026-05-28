@@ -5,39 +5,124 @@
 --   > github : https://github.com/savq/melange-nvim
 -- ================================================================================================
 
-return {
-	-- "savq/melange-nvim",
-	-- lazy = false,
-	-- priority = 1000,
-	-- config = function()
-	-- 	vim.cmd("colorscheme melange")
-	-- end,
-	{
-		"xiyaowong/nvim-transparent",
-		lazy = false,
-		priority = 999,
-	},
+--return {
+--	-- "savq/melange-nvim",
+--	-- lazy = false,
+--	-- priority = 1000,
+--	-- config = function()
+--	-- 	vim.cmd("colorscheme melange")
+--	-- end,
+--	{
+--		"xiyaowong/nvim-transparent",
+--		lazy = false,
+--		priority = 999,
+--	},
+--
+--	{
+--		"EdenEast/nightfox.nvim",
+--		lazy = false,
+--		priority = 999,
+--		config = function()
+--			-- load duskfox palette
+--			local palette = require("nightfox.palette").load("duskfox")
+--
+--			require("nightfox").setup({
+--				options = {
+--					transparent = true,
+--				},
+--				groups = {
+--					duskfox = {
+--						Visual = { bg = palette.bg1 },
+--					},
+--				},
+--			})
+--
+--			vim.cmd("colorscheme duskfox")
+--		end,
+--	},
+--
+--
+--}
 
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = false,
-		priority = 999,
-		config = function()
-			-- load duskfox palette
-			local palette = require("nightfox.palette").load("duskfox")
 
-			require("nightfox").setup({
-				options = {
-					transparent = true,
-				},
-				groups = {
-					duskfox = {
-						Visual = { bg = palette.bg1 },
-					},
-				},
-			})
+--return {
+--
+--	{
+--		"xiyaowong/nvim-transparent",
+--		lazy = false,
+--		priority = 999,
+--	},
+--
+--	{
+--		"rebelot/kanagawa.nvim",
+--		lazy = false,
+--		priority = 1000,
+--
+--		config = function()
+--			require("kanagawa").setup({
+--				compile = false,
+--				undercurl = true,
+--
+--				commentStyle = { italic = true },
+--				functionStyle = {},
+--				keywordStyle = { italic = true },
+--				statementStyle = { bold = true },
+--				typeStyle = {},
+--
+--				transparent = false,
+--				dimInactive = false,
+--				terminalColors = true,
+--
+--				colors = {
+--					palette = {},
+--					theme = {
+--						wave = {},
+--						lotus = {},
+--						dragon = {},
+--						all = {},
+--					},
+--				},
+--
+--				overrides = function(colors)
+--					return {}
+--				end,
+--
+--				theme = "wave",
+--
+--				background = {
+--					dark = "wave",
+--					light = "lotus",
+--				},
+--			})
+--
+--			vim.cmd("colorscheme kanagawa")
+--		end,
+--	},
+--}
 
-			vim.cmd("colorscheme duskfox")
-		end,
-	},
+
+--return {
+--  {
+--    "folke/tokyonight.nvim",
+--    lazy = false,
+--    priority = 1000,
+--
+--    config = function()
+--			vim.cmd("colorscheme tokyonight")
+--		end,
+--  }
+--}
+
+
+return{
+  {
+    "catppuccin/nvim",
+     name = "catppuccin",
+     priority = 1000,
+
+     config = function ()
+      vim.cmd.colorscheme "catppuccin-nvim"
+     end
+   }
 }
+
