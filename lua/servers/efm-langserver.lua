@@ -8,7 +8,7 @@
 
 -- @param capabilities table LSP client capabilities (from nvim-cmp)
 -- @return nil
---return function(capabilities)	
+--return function(capabilities)
 return function()
   local luacheck = require("efmls-configs.linters.luacheck") -- lua linter
 	local stylua = require("efmls-configs.formatters.stylua") -- lua formatter
@@ -26,8 +26,17 @@ return function()
 --	local clangformat = require("efmls-configs.formatters.clang_format") -- c/cpp formatter
 --	local solhint = require("efmls-configs.linters.solhint") -- solidity linter
 
+local templ_format = {
+    formatCommand =  "templ fmt -",-- Runs 'templ fmt' command via stdin/stdout
+    formatStdin = true,
+}
+
 	vim.lsp.config("efm", {
 --		capabilities = capabilities,
+    cmd = { "efm-langserver" },
+		-- 🌟 CRITICAL: EFM won't start unless it finds one of these root files in your project directory
+		root_markers = { ".git", "go.mod", "package.json" },
+
 		filetypes = {
 --			"c",
 --			"cpp",
@@ -45,6 +54,7 @@ return function()
 			"sh",
 --			"solidity",
 --			"svelte",
+       "templ",
 			"typescript",
 			"typescriptreact",
 --			"vue",
@@ -75,10 +85,12 @@ return function()
 				sh = { shellcheck, shfmt },
 --				solidity = { solhint, prettier_d },
 --				svelte = { eslint_d, prettier_d },
+        templ = { templ_format },
 				typescript = { eslint_d, prettier },
 				typescriptreact = { eslint_d, prettier },
 --				vue = { eslint_d, prettier_d },
 			},
 		},
 	})
+  vim.lsp.enable("efm")
 end
