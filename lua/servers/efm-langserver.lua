@@ -10,10 +10,10 @@
 -- @return nil
 --return function(capabilities)
 return function()
-  local luacheck = require("efmls-configs.linters.luacheck") -- lua linter
+	local luacheck = require("efmls-configs.linters.luacheck") -- lua linter
 	local stylua = require("efmls-configs.formatters.stylua") -- lua formatter
---	local flake8 = require("efmls-configs.linters.flake8") -- python linter
---	local black = require("efmls-configs.formatters.black") -- python formatter
+	--	local flake8 = require("efmls-configs.linters.flake8") -- python linter
+	--	local black = require("efmls-configs.formatters.black") -- python formatter
 	local golangci_lint = require("efmls-configs.linters.golangci_lint") -- go linter
 	local gofumpt = require("efmls-configs.formatters.gofumpt") -- go formatter
 	local prettier = require("efmls-configs.formatters.prettier") -- ts/js/solidity/json/docker/html/css/react/svelte/vue formatter
@@ -21,27 +21,29 @@ return function()
 	local fixjson = require("efmls-configs.formatters.fixjson") -- json formatter
 	local shellcheck = require("efmls-configs.linters.shellcheck") -- bash linter
 	local shfmt = require("efmls-configs.formatters.shfmt") -- bash formatter
---	local hadolint = require("efmls-configs.linters.hadolint") -- docker linter
---	local cpplint = require("efmls-configs.linters.cpplint") -- c/cpp linter
---	local clangformat = require("efmls-configs.formatters.clang_format") -- c/cpp formatter
---	local solhint = require("efmls-configs.linters.solhint") -- solidity linter
+	--	local hadolint = require("efmls-configs.linters.hadolint") -- docker linter
+	--	local cpplint = require("efmls-configs.linters.cpplint") -- c/cpp linter
+	--	local clangformat = require("efmls-configs.formatters.clang_format") -- c/cpp formatter
+	--	local solhint = require("efmls-configs.linters.solhint") -- solidity linter
+	local sqlfluff_linter = require("efmls-configs.linters.sqlfluff")
+	local sqlfluff_formatter = require("efmls-configs.formatters.sqlfluff")
 
-local templ_format = {
-    formatCommand =  "templ fmt -",-- Runs 'templ fmt' command via stdin/stdout
-    formatStdin = true,
-}
+	local templ_format = {
+		formatCommand = "templ fmt -", -- Runs 'templ fmt' command via stdin/stdout
+		formatStdin = true,
+	}
 
 	vim.lsp.config("efm", {
---		capabilities = capabilities,
-    cmd = { "efm-langserver" },
+		--		capabilities = capabilities,
+		cmd = { "efm-langserver" },
 		-- 🌟 CRITICAL: EFM won't start unless it finds one of these root files in your project directory
 		root_markers = { ".git", "go.mod", "package.json" },
 
 		filetypes = {
---			"c",
---			"cpp",
+			--			"c",
+			--			"cpp",
 			"css",
---			"docker",
+			--			"docker",
 			"go",
 			"html",
 			"javascript",
@@ -50,14 +52,15 @@ local templ_format = {
 			"jsonc",
 			"lua",
 			"markdown",
---			"python",
+			--			"python",
 			"sh",
---			"solidity",
---			"svelte",
-       "templ",
+			"sql",
+			--			"solidity",
+			--			"svelte",
+			"templ",
 			"typescript",
 			"typescriptreact",
---			"vue",
+			--			"vue",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -69,10 +72,10 @@ local templ_format = {
 		},
 		settings = {
 			languages = {
---				c = { clangformat, cpplint },
---				cpp = { clangformat, cpplint },
+				--				c = { clangformat, cpplint },
+				--				cpp = { clangformat, cpplint },
 				css = { prettier },
---				docker = { hadolint, prettier_d },
+				--				docker = { hadolint, prettier_d },
 				go = { gofumpt, golangci_lint },
 				html = { prettier },
 				javascript = { eslint_d, prettier },
@@ -81,16 +84,17 @@ local templ_format = {
 				jsonc = { eslint_d, fixjson },
 				lua = { luacheck, stylua },
 				markdown = { prettier },
---				python = { flake8, black },
+				--				python = { flake8, black },
 				sh = { shellcheck, shfmt },
---				solidity = { solhint, prettier_d },
---				svelte = { eslint_d, prettier_d },
-        templ = { templ_format },
+				sql = { sqlfluff_linter, sqlfluff_formatter },
+				--				solidity = { solhint, prettier_d },
+				--				svelte = { eslint_d, prettier_d },
+				templ = { templ_format },
 				typescript = { eslint_d, prettier },
 				typescriptreact = { eslint_d, prettier },
---				vue = { eslint_d, prettier_d },
+				--				vue = { eslint_d, prettier_d },
 			},
 		},
 	})
-  vim.lsp.enable("efm")
+	vim.lsp.enable("efm")
 end

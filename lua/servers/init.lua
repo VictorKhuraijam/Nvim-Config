@@ -24,12 +24,13 @@ require("servers.ts_ls")()
 require("servers.tailwindcss")()
 --require("servers.solidity_ls_nomicfoundation")(capabilities)
 
+-- print("Loading sqls (MySQL)")
+require("servers.sqlls")()
+
 -- Linters & Formatters
 require("servers.efm-langserver")()
 
 require("servers.dartls")()
-
-
 
 --vim.lsp.enable('lua_ls')
 --vim.lsp.enable('pyright')

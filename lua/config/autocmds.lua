@@ -5,25 +5,24 @@
 local on_attach = require("utils.lsp").on_attach
 
 vim.filetype.add({
-  extension = {
-    templ = "templ",
-    yaml = 'yaml',
-    yml = 'yaml',
-  },
+	extension = {
+		templ = "templ",
+		yaml = "yaml",
+		yml = "yaml",
+	},
 })
 
 -- Explicitly tell Treesitter to use the templ parser for templ filetype
 vim.treesitter.language.register("templ", "templ")
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'templ'},
-  callback = function()
-    vim.treesitter.start()
-    --Optional: force the filetype again just to be sure
-    vim.bo.filetype = 'templ'
-    print('templ treesitter highlight on filetype lua')
-  end,
-
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "templ" },
+	callback = function()
+		vim.treesitter.start()
+		--Optional: force the filetype again just to be sure
+		vim.bo.filetype = "templ"
+		print("templ treesitter highlight on filetype lua")
+	end,
 })
 
 -- Restore last cursor position when reopening a file
@@ -61,7 +60,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		if vim.tbl_isempty(efm) then
 			return
 		end
-		vim.lsp.buf.format({ name = "efm", async = false, timeout_ms = 2000,})
+		vim.lsp.buf.format({ name = "efm", async = false, timeout_ms = 2000 })
 	end,
 })
 
@@ -83,14 +82,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		local ft = vim.bo[event.buf].filetype
 
-		if ft == "dart"
-			and client.name == "dartls"
-			and client.server_capabilities.colorProvider
-		then
-			vim.lsp.document_color.enable(true, event.buf)
+		if ft == "dart" and client.name == "dartls" and client.server_capabilities.colorProvider then
+			-- Wrap the execution in a pcall to catch unhandled server assertions
+			pcall(function()
+				vim.lsp.document_color.enable(true, { bufnr = event.buf })
+			end)
 		end
 	end,
 })
-
-
-
