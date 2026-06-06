@@ -3,6 +3,9 @@
 -- ABOUT : basic settings native to neovim
 -- ================================================================================================
 
+vim.opt.cmdheight = 1
+vim.opt.showmode = true
+
 -- Basic Settings
 vim.opt.number = true -- Line numbers
 vim.opt.relativenumber = true -- Relative line numbers
@@ -105,11 +108,11 @@ vim.opt.splitbelow = true -- Horizontal splits open below
 vim.opt.splitright = true -- Vertical splits open to the right
 
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = false,
-  update_in_insert = false,
-  severity_sort = true,
+	virtual_text = false,
+	signs = true,
+	underline = false,
+	update_in_insert = false,
+	severity_sort = true,
 
-  float = false,
+	float = false,
 })
