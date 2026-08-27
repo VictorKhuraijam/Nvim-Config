@@ -90,3 +90,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
+
+
+
+-- When entering Neovim, turn Caps Lock into Escape
+local capslock_group = vim.api.nvim_create_augroup("CapsLockToEsc", { clear = true })
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = capslock_group,
+    callback = function()
+        vim.fn.system("setxkbmap -option '' -option caps:swapescape")
+    end,
+})
+
+-- When exiting Neovim, restore Caps Lock to normal functionality
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    group = capslock_group,
+    callback = function()
+        vim.fn.system("setxkbmap -option ''")
+    end,
+})
