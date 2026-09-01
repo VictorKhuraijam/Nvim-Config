@@ -6,6 +6,9 @@
 vim.opt.cmdheight = 1
 vim.opt.showmode = true
 
+vim.opt.title = true
+vim.opt.titlestring = "NVIM"
+
 -- Basic Settings
 vim.opt.number = true -- Line numbers
 vim.opt.relativenumber = true -- Relative line numbers

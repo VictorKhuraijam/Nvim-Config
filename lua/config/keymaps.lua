@@ -9,6 +9,7 @@ vim.g.VM_maps = {
   ["Find Subword Under"] = "<C-d>",
 }
 
+
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
