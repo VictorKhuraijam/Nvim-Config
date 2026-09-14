@@ -10,6 +10,9 @@
 -- ================================================================================================
 
 
+-- Forces the text under an LSP error to physically blink
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, blink = true, sp = "Red" })
+
 vim.env.PATH = vim.fn.expand("$HOME/.cargo/bin:") .. vim.env.PATH
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

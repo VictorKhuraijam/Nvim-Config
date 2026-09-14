@@ -12,6 +12,18 @@ vim.filetype.add({
 	},
 })
 
+
+-- Force error highlights to blink, even after the colorscheme loads
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, blink = true, sp = "Red" })
+  end,
+})
+
+-- Run it immediately once for the current session
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, blink = true, sp = "Red" })
+
 -- Explicitly tell Treesitter to use the templ parser for templ filetype
 vim.treesitter.language.register("templ", "templ")
 
